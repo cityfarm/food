@@ -81,7 +81,6 @@ xmlhttp.onreadystatechange = function () {
                       </datalist>
                       </td>
                       <td id="tong${i + 1}">${tong}</td>
-                      <td>${ghichu}</td>
                   </tr>
                   `;
         }
