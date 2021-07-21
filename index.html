@@ -26,8 +26,6 @@
     <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css" />
     <link rel="stylesheet" href="css/slicknav.min.css" type="text/css" />
     <link rel="stylesheet" href="css/style.css" type="text/css" />
-
-    <!-- <link rel="stylesheet" href="css/phuong.css" type="text/css" /> -->
   </head>
 
   <body>
@@ -36,6 +34,7 @@
         <div class="row">
           <div class="col">
             <h3 class="text-success">Rau Củ Quả Đà Lạt</h3>
+            <a href="./index.html">Home</a>
             <span>Số điện thoại: 0762 0808 72</span>
           </div>
         </div>
@@ -52,13 +51,13 @@
               <div class="col-lg-3 col-md-4 col-sm-6">
                 <div class="checkout__input">
                   <p>Tên<span>*</span></p>
-                  <input type="text" name="name" placeholder="Nhập tên:" />
+                  <input type="text" name="name" id="ten" placeholder="Nhập tên:" />
                 </div>
               </div>
               <div class="col-lg-3 col-md-4 col-sm-6">
                 <div class="checkout__input">
                   <p>Điện thoại<span>*</span></p>
-                  <input type="tel" name="phone" placeholder="Điện thoại: " />
+                  <input type="tel" name="phone" id="dienThoai" placeholder="Điện thoại: " />
                 </div>
               </div>
               <div class="col-lg-3 col-md-4 col-sm-6">
@@ -83,8 +82,8 @@
                 <div class="shoping__checkout">
                   <ul>
                     <li>
-                      Tổng cộng (chưa bao gồm phí)
-                      <span id="tongTien"> 350k </span>
+                      Tổng cộng:
+                     <h3 id="lblTongCong" name="tongcong" class="text-danger text-center shadow-lg"> 0 k </h3l>
                     </li>
                   </ul>
                   <a href="#" class="primary-btn" id="submit-form">Đặt Hàng</a>
@@ -94,8 +93,9 @@
 
             <!-- Đặt hàng End -->
 
-            <!-- Shoping Cart Section Begin -->
+            
 
+            <!-- TABLE Begin -->
             <div class="row">
               <div class="col">
                 <table
@@ -122,14 +122,12 @@
                 </table>
               </div>
             </div>
-
-            <!-- Shoping Cart Section End -->
+            <!-- TABLE End -->
           </form>
         </div>
       </div>
     </div>
 
-    <!-- Js Plugins -->
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery.nice-select.min.js"></script>
@@ -139,92 +137,7 @@
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
     <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
-    <script type="text/javascript">
-      var postUrl =
-        "https://script.google.com/macros/s/AKfycbzuQ4HlRTcd6Ilnj25ZTcppEnWnS9gyVm_ho1wZUXpCj_ngwSRNxcKyZ8tAJALIQLbB/exec";
-      $(document).ready(function () {
-        //var submit = $("button[type='submit']");
-        var submit = $("#submit-form");
-        submit.click(function () {
-          var data = $("form#test-form").serialize();
-          $.ajax({
-            type: "GET",
-            url: postUrl,
-            dataType: "json",
-            crossDomain: true,
-            data: data,
-            success: function (data) {
-              if (data == "false") {
-                alert("Có lỗi, xin hãy nhập lại! Hoặc gọi cho hotline.");
-              } else {
-                alert(
-                  "Cảm ơn quý khách đã ủng hộ. Chúng tôi sẽ gọi điện xác nhận đơn hàng trước khi giao cho quý khách!"
-                );
-              }
-            },
-          });
-          return false;
-        });
-      });
+    <script src="./js/phuong.js"></script>
 
-      const log = console.log;
-      var arrData = [];
-      let xmlhttp = new XMLHttpRequest();
-      xmlhttp.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-          let data = JSON.parse(this.responseText).feed.entry;
-          //console.log(data);
-          let i;
-          for (i = 0; i < data.length; i++) {
-            let stt = data[i]["gsx$stt"]["$t"];
-            let mathang = data[i]["gsx$mathang"]["$t"];
-            let gia = data[i]["gsx$gia"]["$t"];
-            gia = Number(gia);
-            let soluong = 0;
-            let tong = gia * soluong;
-            let ghichu = data[i]["gsx$ghichu"]["$t"];
-
-            var obj;
-            obj = {
-              stt: stt,
-              mathang: mathang,
-              gia: gia,
-              soluong: soluong,
-              tong: tong,
-              ghichu: ghichu,
-            };
-            arrData.push(obj);
-
-            document.getElementById("tableBody").innerHTML += `
-                  <tr>
-                      <th scope="row">${stt}</th>
-                      <td>${mathang}</td>
-                      <td id="gia${i + 1}">${gia}</td>
-                      <td>
-                          <input type="number" list="defaultNumbers" style="padding: 1px; width: 4em;"
-                          min="0" max="20" step="0.5" name="${stt}">
-                          <datalist id="defaultNumbers">
-                          <option value="1">
-                          <option value="2">
-                          <option value="3">
-                      </datalist>
-                      </td>
-                      <td id="tong${i + 1}">${tong}</td>
-                      <td>${ghichu}</td>
-                  </tr>
-                  `;
-          }
-        }
-      };
-      const getUrl =
-        "https://spreadsheets.google.com/feeds/list/1WYNSjXC755-_PumH4BU4d8lCFGjocs6m8E-EOdS40aQ/od6/public/values?alt=json";
-      xmlhttp.open(
-        "GET",
-        getUrl,
-        //"https://spreadsheets.google.com/feeds/list/1WYNSjXC755-_PumH4BU4d8lCFGjocs6m8E-EOdS40aQ/od6/public/values?alt=json",
-        true
-      );
-      xmlhttp.send();
-    </script>
   </body>
 </html>
