@@ -2,7 +2,7 @@
 var postUrl =
     "https://script.google.com/macros/s/AKfycbzuQ4HlRTcd6Ilnj25ZTcppEnWnS9gyVm_ho1wZUXpCj_ngwSRNxcKyZ8tAJALIQLbB/exec";
 $(document).ready(function () {
-    var submit = $("#submit-form");
+    var submit = $("a[name='submit']"); //$("element[attribute-name=attribute-value]")
     submit.click(function () {
         let ten = $("#ten").val();
         let dienThoai = $("#dienThoai").val();
@@ -113,4 +113,6 @@ function capNhatGia() {
         currentRow.children().eq(4).text(tong);
     }
     $("#lblTongCong").text(tongCong + " k");
+    $("#lblTongCong2").text(tongCong + " k");
+
 }
