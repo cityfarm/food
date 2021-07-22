@@ -48,25 +48,25 @@
             <!-- Form nhập Begin -->
 
             <div class="row">
-              <div class="col-lg-3 col-md-4 col-sm-6">
+              <div class="col-lg-3 col-md-6 col-sm-12">
                 <div class="checkout__input">
                   <p>Tên<span>*</span></p>
                   <input type="text" name="name" id="ten" placeholder="Nhập tên:" />
                 </div>
               </div>
-              <div class="col-lg-3 col-md-4 col-sm-6">
+              <div class="col-lg-3 col-md-6 col-sm-12">
                 <div class="checkout__input">
                   <p>Điện thoại<span>*</span></p>
-                  <input type="tel" name="phone" id="dienThoai" placeholder="Điện thoại: " />
+                  <input type="number" name="phone" id="dienThoai" placeholder="Điện thoại: " />
                 </div>
               </div>
-              <div class="col-lg-3 col-md-4 col-sm-6">
+              <div class="col-lg-3 col-md-6 col-sm-12">
                 <div class="checkout__input">
                   <p>Địa chỉ<span>*</span></p>
-                  <input type="text" name="address" placeholder="Địa chỉ: " />
+                  <input type="text" name="address" id="diaChi" placeholder="Địa chỉ: " />
                 </div>
               </div>
-              <div class="col-lg-3 col-md-4 col-sm-6">
+              <div class="col-lg-3 col-md-6 col-sm-12">
                 <div class="checkout__input">
                   <p>Note</p>
                   <input type="text" name="note" placeholder="Ghi chú: " />
@@ -82,8 +82,9 @@
                 <div class="shoping__checkout">
                   <ul>
                     <li>
-                      Tổng cộng:
-                     <h3 id="lblTongCong" name="tongcong" class="text-danger text-center shadow-lg"> 0 k </h3l>
+                      Tổng cộng (chưa bao gồm phí ship):
+                     <h3 id="lblTongCong" name="tongcong" class="text-danger text-center shadow-lg"> 0<sup> kVND</sup></h3>
+                     
                     </li>
                   </ul>
                   <a href="#" class="primary-btn" name="submit" id="submit-form">Đặt Hàng</a>
@@ -93,7 +94,12 @@
 
             <!-- Đặt hàng End -->
 
-            
+            <!-- khoảng trống -->
+            <div class="row">
+              <div class="col">
+                &nbsp
+              </div>
+            </div>
 
             <!-- TABLE Begin -->
             <div class="row">
